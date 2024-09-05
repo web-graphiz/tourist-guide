@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <>
       <Header />
-      <section className="bg-bannerImg bg-repeat bg-cover bg-bottom">
+      <section className="bg-bannerImg bg-no-repeat bg-cover bg-bottom">
         <div className="w-full h-screen flex items-end bg-blackOverlay">
           <div className="container mx-auto mb-40">
             <h1 className="text-white uppercase text-7xl font-bold">
