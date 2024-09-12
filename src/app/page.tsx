@@ -1,4 +1,44 @@
 import Header from "@/components/header";
+import PackageInfo from "@/components/packageInfo";
+
+const packages = [
+  {
+    bgImg: "venice.jpg",
+    name: "City of Canal",
+    location: "Venice",
+    price: "$1230.00",
+  },
+  {
+    bgImg: "moscow.jpg",
+    name: "The Heritage City",
+    location: "Moscow",
+    price: "$1430.00",
+  },
+  {
+    bgImg: "paris.jpg",
+    name: "City of Love",
+    location: "Paris",
+    price: "$1030.00",
+  },
+  {
+    bgImg: "mumbai.jpg",
+    name: "City of Dreams",
+    location: "Mumbai",
+    price: "$830.00",
+  },
+  {
+    bgImg: "tokyo.jpg",
+    name: "City of Anime",
+    location: "Tokyo",
+    price: "$2830.00",
+  },
+  {
+    bgImg: "beijing.jpg",
+    name: "The Forbidden City",
+    location: "Beijing",
+    price: "$1930.00",
+  },
+];
 
 const Home = () => {
   return (
@@ -24,6 +64,24 @@ const Home = () => {
             >
               Get Started
             </a>
+          </div>
+        </div>
+      </section>
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-6xl font-bold text-darkGray mb-3 uppercase">
+            Packages
+            <span className="bg-green w-40 h-1 inline-block ml-2"></span>
+          </h2>
+          <p className="text-sm text-darkGray w-full max-w-[750px]">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
+            nulla architecto vel deserunt, incidunt consequatur quos facilis
+            doloremque, consectetur sequi perferendis temporibus sed
+          </p>
+          <div className="flex flex-wrap mt-8">
+            {packages.map((pkg, i: number) => {
+              return <PackageInfo key={i} pkg={pkg} />;
+            })}
           </div>
         </div>
       </section>
