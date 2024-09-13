@@ -1,5 +1,6 @@
 import Header from "@/components/header";
-import PackageInfo from "@/components/packageInfo";
+import PackageDetails from "@/components/packageDetails";
+import { Package } from "@/models/package";
 
 const packages = [
   {
@@ -67,20 +68,21 @@ const Home = () => {
           </div>
         </div>
       </section>
+
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-6xl font-bold text-darkGray mb-3 uppercase">
             Packages
-            <span className="bg-green w-40 h-1 inline-block ml-2"></span>
+            <span className="inline-block bg-green w-40 h-1 ml-2"></span>
           </h2>
           <p className="text-sm text-darkGray w-full max-w-[750px]">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-            nulla architecto vel deserunt, incidunt consequatur quos facilis
-            doloremque, consectetur sequi perferendis temporibus sed
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim porro
+            ullam laboriosam nesciunt tenetur perspiciatis praesentium illum
+            ducimus distinctio aut eos commodi, sit a incidunt!
           </p>
           <div className="flex flex-wrap mt-8">
-            {packages.map((pkg, i: number) => {
-              return <PackageInfo key={i} pkg={pkg} />;
+            {packages.map((pkg: Package, i: number) => {
+              return <PackageDetails key={i} pkgInfo={pkg} />;
             })}
           </div>
         </div>
