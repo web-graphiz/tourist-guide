@@ -37,7 +37,7 @@ export default function Gallery() {
                 setPopImg(true);
               }}
               key={i}
-              className="w-1/5 cursor-pointer hover:scale-110 transition-all ease-linear"
+              className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/5 cursor-pointer hover:scale-110 transition-all ease-linear"
             >
               <Image
                 src={`/gallery/${loc.img}`}
@@ -51,7 +51,7 @@ export default function Gallery() {
         })}
       </div>
       {popImg && (
-        <div className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-85 z-50 flex justify-between items-center">
+        <div className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-85 z-50 flex justify-between items-center gap-3">
           <a
             onClick={() => setPopImg(false)}
             className="absolute top-2 right-2 cursor-pointer"
@@ -70,7 +70,7 @@ export default function Gallery() {
           </a>
           <a
             onClick={() => swipeImg("prv")}
-            className="bg-green rounded-full w-16 h-16 hover:translate-x-2 transition-all ease-linear cursor-pointer"
+            className="bg-green rounded-full ml-2 hover:translate-x-2 transition-all ease-linear cursor-pointer"
           >
             <svg
               fill="none"
@@ -78,12 +78,12 @@ export default function Gallery() {
               viewBox="0 0 24 24"
               width="24"
               xmlns="http://www.w3.org/2000/svg"
-              className="w-16 h-16 fill-white"
+              className="w-10 h-10 md:w-16 md:h-16 fill-white"
             >
               <path
-                clip-rule="evenodd"
+                clipRule="evenodd"
                 d="M15.0303 6.46967C15.3232 6.76256 15.3232 7.23744 15.0303 7.53033L10.5607 12L15.0303 16.4697C15.3232 16.7626 15.3232 17.2374 15.0303 17.5303C14.7374 17.8232 14.2626 17.8232 13.9697 17.5303L8.96967 12.5303C8.82902 12.3897 8.75 12.1989 8.75 12C8.75 11.8011 8.82902 11.6103 8.96967 11.4697L13.9697 6.46967C14.2626 6.17678 14.7374 6.17678 15.0303 6.46967Z"
-                fill-rule="evenodd"
+                fillRule="evenodd"
               />
             </svg>
           </a>
@@ -101,7 +101,7 @@ export default function Gallery() {
           </div>
           <a
             onClick={() => swipeImg("nxt")}
-            className="bg-green rounded-full w-16 h-16 hover:-translate-x-2 transition-all ease-linear cursor-pointer"
+            className="bg-green rounded-full mr-2 hover:-translate-x-2 transition-all ease-linear cursor-pointer"
           >
             <svg
               fill="none"
@@ -109,16 +109,16 @@ export default function Gallery() {
               viewBox="0 0 24 24"
               width="24"
               xmlns="http://www.w3.org/2000/svg"
-              className="w-16 h-16 fill-white"
+              className="w-10 h-10 md:w-16 md:h-16 fill-white"
             >
               <path
-                clip-rule="evenodd"
+                clipRule="evenodd"
                 d="M8.96967 17.5303C8.67678 17.2374 8.67678 16.7626 8.96967 16.4697L13.4393 12L8.96967 7.53033C8.67678 7.23744 8.67678 6.76256 8.96967 6.46967C9.26256 6.17678 9.73744 6.17678 10.0303 6.46967L15.0303 11.4697C15.171 11.6103 15.25 11.8011 15.25 12C15.25 12.1989 15.171 12.3897 15.0303 12.5303L10.0303 17.5303C9.73744 17.8232 9.26256 17.8232 8.96967 17.5303Z"
-                fill-rule="evenodd"
+                fillRule="evenodd"
               />
             </svg>
           </a>
-          <nav className="absolute left-0 right-0 bottom-5 flex justify-center gap-3">
+          <nav className="absolute hidden lg:flex left-0 right-0 bottom-5 justify-center gap-3 px-4">
             {db.gallery.map((loc: gallery, i: number) => {
               return (
                 <a
