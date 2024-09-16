@@ -242,7 +242,7 @@ const Home = () => {
       <section className="py-20">
         <div className="group container mx-auto">
           <div className="flex items-center justify-center">
-            <article className="w-6/12 bg-white shadow-lg relative z-30 -mr-20 group-hover:-mr-56 rounded transition-all delay-200">
+            <article className="w-6/12 bg-white shadow-lg relative z-30 -mr-20 group-hover:-mr-56 rounded transition-all delay-200 ease-linear">
               <div className="p-8">
                 <h2 className="text-6xl font-bold text-darkGray mb-3 uppercase">
                   About Me
@@ -472,7 +472,7 @@ const Home = () => {
                 </div>
               </div>
             </article>
-            <aside className="w-4/12 relative z-0 transition-all delay-200">
+            <aside className="w-4/12 relative z-0 transition-all delay-200 ease-linear">
               <Image
                 src={traveler}
                 alt="Traveler"
