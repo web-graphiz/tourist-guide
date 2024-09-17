@@ -1,31 +1,25 @@
 "use client";
 
+import Image from "next/image";
 import db from "@/app/db/gallery.json";
 import { gallery } from "@/models/gallery";
-import Image from "next/image";
 import { useState } from "react";
 
-export default function Gallery() {
+const Gallery = () => {
   const [selectedImg, setSelectedImg] = useState<number>(0);
-  const [popImg, setPopImg] = useState<boolean>(false);
+  const [imgPop, setImgPop] = useState<boolean>(false);
 
   const swipeImg = (moveType: string) => {
     if (moveType == "prv") {
-      if (selectedImg == 0) {
-        setSelectedImg(db.gallery.length - 1);
-      } else {
-        setSelectedImg(selectedImg - 1);
-      }
+      if (selectedImg == 0) setSelectedImg(db.gallery.length - 1);
+      else setSelectedImg(selectedImg - 1);
     }
+
     if (moveType == "nxt") {
-      if (selectedImg == db.gallery.length - 1) {
-        setSelectedImg(0);
-      } else {
-        setSelectedImg(selectedImg + 1);
-      }
+      if (selectedImg == db.gallery.length - 1) setSelectedImg(0);
+      else setSelectedImg(selectedImg + 1);
     }
   };
-
   return (
     <>
       <div className="flex flex-wrap items-center justify-center mt-10">
@@ -34,7 +28,7 @@ export default function Gallery() {
             <a
               onClick={() => {
                 setSelectedImg(i);
-                setPopImg(true);
+                setImgPop(true);
               }}
               key={i}
               className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/5 cursor-pointer hover:scale-110 transition-all ease-linear"
@@ -50,10 +44,10 @@ export default function Gallery() {
           );
         })}
       </div>
-      {popImg && (
+      {imgPop && (
         <div className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-85 z-50 flex justify-between items-center gap-3">
           <a
-            onClick={() => setPopImg(false)}
+            onClick={() => setImgPop(false)}
             className="absolute top-2 right-2 cursor-pointer"
           >
             <svg
@@ -95,9 +89,9 @@ export default function Gallery() {
               height={500}
               className="w-full max-w-[650px] h-auto"
             />
-            <h2 className="text-center text-white font-bold uppercase text-3xl mt-3">
+            <h3 className="text-center text-white font-bold uppercase text-3xl mt-3">
               {db.gallery[selectedImg].location}
-            </h2>
+            </h3>
           </div>
           <a
             onClick={() => swipeImg("nxt")}
@@ -118,22 +112,22 @@ export default function Gallery() {
               />
             </svg>
           </a>
-          <nav className="absolute hidden lg:flex left-0 right-0 bottom-5 justify-center gap-3 px-4">
+
+          <nav className="absolute hidden left-0 right-0 bottom-5 lg:flex justify-center gap-3 px-4">
             {db.gallery.map((loc: gallery, i: number) => {
               return (
                 <a
                   onClick={() => setSelectedImg(i)}
-                  key={i}
                   className={`hover:-translate-y-2 transition-all ease-linear cursor-pointer ${
                     selectedImg == i ? "-translate-y-2" : ""
                   }`}
+                  key={i}
                 >
                   <Image
                     src={`/gallery/${loc.img}`}
                     alt={loc.location}
                     width={80}
                     height={80}
-                    className="object-cover object-center"
                   />
                 </a>
               );
@@ -143,4 +137,6 @@ export default function Gallery() {
       )}
     </>
   );
-}
+};
+
+export default Gallery;

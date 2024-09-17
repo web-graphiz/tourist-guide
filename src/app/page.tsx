@@ -489,15 +489,15 @@ const Home = () => {
         <div className="py-20 bg-black bg-opacity-20">
           <div className="container mx-auto px-4">
             <h2 className="text-6xl font-bold text-black mb-3 uppercase">
-              Gallery
+              Gallery{" "}
               <span className="inline-block bg-darkGray w-40 h-1 ml-2"></span>
             </h2>
             <p className="text-sm text-black w-full max-w-[750px]">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              porro ullam laboriosam nesciunt tenetur perspiciatis praesentium
-              illum ducimus distinctio aut eos commodi, sit a incidunt!
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et dolor
+              est voluptatem recusandae! Architecto, laborum? Odio suscipit id
+              sed. At totam ipsam officia laboriosam sed ratione ipsa
+              exercitationem omnis sint.
             </p>
-
             <Gallery />
           </div>
         </div>
