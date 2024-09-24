@@ -478,6 +478,7 @@ const Home = () => {
                 alt="Traveler"
                 width={550}
                 height={850}
+                priority={true}
                 className="w-full h-auto object-cover rounded"
               />
             </aside>

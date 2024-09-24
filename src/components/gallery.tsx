@@ -31,7 +31,7 @@ const Gallery = () => {
                 setImgPop(true);
               }}
               key={i}
-              className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 2xl:w-1/5 cursor-pointer hover:scale-110 transition-all ease-linear"
+              className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/5 2xl:w-1/5 cursor-pointer hover:scale-110 transition-all ease-linear"
             >
               <Image
                 src={`/gallery/${loc.img}`}
@@ -39,6 +39,9 @@ const Gallery = () => {
                 width={300}
                 height={250}
                 className="w-full h-64 object-cover"
+                loading="lazy"
+                blurDataURL={`/gallery/${loc.img}`}
+                placeholder="blur"
               />
             </a>
           );
