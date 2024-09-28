@@ -16,19 +16,19 @@ const Header = () => {
         >
           Packages
         </Link>
-
-        <Link
-          href=""
-          className="uppercase font-semibold text-base text-white px-5 py-1 rounded-2xl transition-all hover:bg-green hover:shadow-md"
-        >
-          Gallery
-        </Link>
         <Link
           href=""
           className="uppercase font-semibold text-base text-white px-5 py-1 rounded-2xl transition-all hover:bg-green hover:shadow-md"
         >
           About
         </Link>
+        <Link
+          href=""
+          className="uppercase font-semibold text-base text-white px-5 py-1 rounded-2xl transition-all hover:bg-green hover:shadow-md"
+        >
+          Gallery
+        </Link>
+
         <Link
           href=""
           className="uppercase font-semibold text-base text-white px-5 py-1 hover:bg-green rounded-2xl transition-all hover:shadow-md"

@@ -503,6 +503,15 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-6xl font-bold text-darkGray mb-3 uppercase">
+            Testimonials{" "}
+            <span className="inline-block bg-green w-40 h-1 ml-2"></span>
+          </h2>
+        </div>
+      </section>
     </>
   );
 };
