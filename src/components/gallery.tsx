@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import db from "@/app/db/gallery.json";
+import db from "@/db/gallery.json";
 import { gallery } from "@/models/gallery";
 import { useState } from "react";
 

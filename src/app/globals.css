@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.slick-dots {
+  li {
+    &.slick-active {
+      button::before {
+        @apply text-green !important;
+      }
+    }
+    button::before {
+      @apply text-darkGray !important;
+    }
+  }
+}
