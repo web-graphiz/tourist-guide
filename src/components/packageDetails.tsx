@@ -3,7 +3,7 @@ import { Package } from "@/models/package";
 const PackageDetails = ({ pkgInfo }: { pkgInfo: Package }) => {
   return (
     <aside
-      className="group w-1/3 bg-cover bg-center"
+      className="group w-full sm:w-1/2 lg:w-1/3 bg-cover bg-center"
       style={{ backgroundImage: `url(/${pkgInfo.bgImg})` }}
     >
       <div className="opacity-0 group-hover:opacity-100 transition-all delay-150 bg-black bg-opacity-75 w-full h-[550px] flex justify-center items-center flex-col">

@@ -4,7 +4,8 @@ import { Package } from "@/models/package";
 import Image from "next/image";
 import traveler from "../../public/traveler.jpg";
 import Gallery from "@/components/gallery";
-import Testimonial from "@/components/testimonial";
+import Testimonials from "@/components/testimonial";
+import ContactForm from "@/components/contactForm";
 
 const packages = [
   {
@@ -49,15 +50,18 @@ const Home = () => {
   return (
     <>
       <Header />
-      <section className="bg-bannerImg bg-no-repeat bg-cover bg-bottom">
+      <section
+        id="home"
+        className="bg-bannerImg bg-no-repeat bg-cover bg-bottom"
+      >
         <div className="w-full h-screen flex items-end bg-blackOverlay">
-          <div className="container mx-auto mb-40">
-            <h1 className="text-white uppercase text-7xl font-bold">
+          <div className="container mx-auto mb-40 px-4">
+            <h1 className="text-white uppercase text-5xl md:text-6xl lg:text-7xl font-bold">
               Never Stop
               <br />
               Exploring World
             </h1>
-            <p className="text-white w-full max-w-2xl my-8">
+            <p className="text-white w-full max-w-2xl my-8 text-base md:text-lg">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
               facilis enim laboriosam iste doloribus blanditiis illo veniam fuga
               vitae architecto, laborum debitis sequi, ducimus repellendus
@@ -73,11 +77,11 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="py-20">
+      <section id="packages" className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-6xl font-bold text-darkGray mb-3 uppercase">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-darkGray mb-3 uppercase">
             Packages
-            <span className="inline-block bg-green w-40 h-1 ml-2"></span>
+            <span className="inline-block bg-green w-20 sm:w-40 h-1 ml-2"></span>
           </h2>
           <p className="text-sm text-darkGray w-full max-w-[750px]">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim porro
@@ -94,8 +98,8 @@ const Home = () => {
 
       <section className="bg-[url('/tea-garden.jpg')] bg-cover bg-fixed bg-no-repeat bg-center">
         <div className="bg-black bg-opacity-70 py-20">
-          <div className="container mx-auto flex">
-            <aside className="text-center w-1/4">
+          <div className="container mx-auto flex flex-wrap px-4">
+            <aside className="text-center w-1/2 lg:w-1/4 p-4">
               <svg
                 width="50"
                 height="50"
@@ -134,7 +138,7 @@ const Home = () => {
                 </small>
               </h3>
             </aside>
-            <aside className="text-center w-1/4">
+            <aside className="text-center w-1/2 lg:w-1/4 p-4">
               <svg
                 width="50"
                 height="50"
@@ -169,7 +173,7 @@ const Home = () => {
                 </small>
               </h3>
             </aside>
-            <aside className="text-center w-1/4">
+            <aside className="text-center w-1/2 lg:w-1/4 p-4">
               <svg
                 width="50"
                 height="50"
@@ -189,7 +193,7 @@ const Home = () => {
                 </small>
               </h3>
             </aside>
-            <aside className="text-center w-1/4">
+            <aside className="text-center w-1/2 lg:w-1/4 p-4">
               <svg
                 width="50"
                 height="50"
@@ -240,12 +244,12 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="group container mx-auto">
-          <div className="flex items-center justify-center">
-            <article className="w-6/12 bg-white shadow-lg relative z-30 -mr-20 group-hover:-mr-56 rounded transition-all delay-200 ease-linear">
+      <section id="about" className="py-20">
+        <div className="group container mx-auto px-4">
+          <div className="flex items-center gap-4 lg:gap-0 flex-col lg:flex-row justify-center">
+            <article className="w-full lg:w-6/12 bg-white shadow-lg relative z-30 lg:-mr-20 lg:group-hover:-mr-56 rounded transition-all delay-200 ease-linear">
               <div className="p-8">
-                <h2 className="text-6xl font-bold text-darkGray mb-3 uppercase">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-darkGray mb-3 uppercase">
                   About Me
                   <span className="inline-block bg-green w-40 h-1 ml-2"></span>
                 </h2>
@@ -473,7 +477,7 @@ const Home = () => {
                 </div>
               </div>
             </article>
-            <aside className="w-4/12 relative z-0 transition-all delay-200 ease-linear">
+            <aside className="w-full lg:w-4/12 relative z-0 transition-all delay-200 ease-linear">
               <Image
                 src={traveler}
                 alt="Traveler"
@@ -487,10 +491,13 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="bg-[url('/mountains.jpg')] bg-no-repeat bg-cover bg-center">
+      <section
+        id="gallery"
+        className="bg-[url('/mountains.jpg')] bg-no-repeat bg-cover bg-center"
+      >
         <div className="py-20 bg-black bg-opacity-20">
           <div className="container mx-auto px-4">
-            <h2 className="text-6xl font-bold text-black mb-3 uppercase">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-3 uppercase">
               Gallery{" "}
               <span className="inline-block bg-darkGray w-40 h-1 ml-2"></span>
             </h2>
@@ -507,79 +514,38 @@ const Home = () => {
 
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-6xl font-bold text-darkGray mb-3 uppercase">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-darkGray mb-3 uppercase">
             Testimonials{" "}
-            <span className="inline-block bg-green w-40 h-1 ml-2"></span>
+            <span className="inline-block bg-green w-10 sm:w-40 h-1 ml-2"></span>
           </h2>
           <p className="text-sm text-darkGray w-full max-w-[750px]">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim porro
-            ullam laboriosam nesciunt tenetur perspiciatis praesentium illum
-            ducimus distinctio aut eos commodi, sit a incidunt!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
+            ab nemo, excepturi cupiditate corrupti ad quod optio. Eveniet
+            excepturi.
           </p>
-          <div className="my-5">
-            <Testimonial />
+          <div className="mt-5">
+            <Testimonials />
           </div>
         </div>
       </section>
 
-      <section className="bg-[url('/contact-background.jpg')] bg-no-repeat bg-cover bg-bottom py-20">
-        <div className="container rounded mx-auto p-20 bg-black bg-opacity-35">
-          <h2 className="text-6xl font-bold text-white mb-3 uppercase">
+      <section
+        id="contact"
+        className="bg-[url('/contact-background.jpg')] bg-no-repeat bg-cover bg-bottom py-20"
+      >
+        <div className="container mx-auto p-6 sm:p-16 md:p-20 bg-black bg-opacity-35 rounded">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 uppercase">
             Contact Me{" "}
-            <span className="inline-block bg-green w-40 h-1 ml-2"></span>
+            <span className="inline-block bg-green w-16 sm:w-40 h-1 ml-2"></span>
           </h2>
           <p className="text-sm text-white w-full max-w-[750px]">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et dolor
-            est voluptatem recusandae! Architecto, laborum? Odio suscipit id
-            sed. At totam ipsam officia laboriosam sed ratione ipsa
-            exercitationem omnis sint.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil fugit
+            nostrum ad blanditiis quibusdam? Autem, earum debitis nemo accusamus
+            animi illo odio maxime aliquam ipsa exercitationem molestias, quos
+            voluptates cupiditate!
           </p>
-          <form className="mt-5">
-            <div className="flex my-3 gap-6">
-              <div className="w-1/2">
-                <input
-                  type="text"
-                  placeholder="First Name"
-                  className="w-full text-lg px-4 py-1.5 rounded shadow-md"
-                />
-              </div>
-              <div className="w-1/2">
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  className="w-full text-lg px-4 py-1.5 rounded shadow-md"
-                />
-              </div>
-            </div>
-            <div className="flex my-3 gap-6">
-              <div className="w-1/2">
-                <input
-                  type="email"
-                  placeholder="E-mail"
-                  className="w-full text-lg px-4 py-1.5 rounded shadow-md"
-                />
-              </div>
-              <div className="w-1/2">
-                <input
-                  type="tel"
-                  placeholder="Contact No."
-                  className="w-full text-lg px-4 py-1.5 rounded shadow-md"
-                />
-              </div>
-            </div>
-            <textarea
-              placeholder="Message"
-              className="w-full text-lg px-4 py-1.5 rounded min-h-32 shadow-md"
-            ></textarea>
-            <div className="mt-6 flex justify-end">
-              <button
-                type="submit"
-                className="bg-white rounded text-black hover:bg-green transition-all ease-linear py-2 px-3 font-medium uppercase shadow-md"
-              >
-                Send Message
-              </button>
-            </div>
-          </form>
+
+          <ContactForm />
 
           <footer className="mt-20 text-center text-white font-semibold text-sm">
             <div className="flex justify-center items-center gap-5 mb-5">
