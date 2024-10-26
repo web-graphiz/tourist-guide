@@ -4,36 +4,43 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 const BookingForm = ({
-  pkgTitle,
+  pkgName,
   location,
   popStatus,
   closePop,
 }: {
-  pkgTitle: string;
+  pkgName: string;
   location: string;
   popStatus: boolean;
   closePop: (status: boolean) => void;
 }) => {
-  const { register, reset, handleSubmit, setValue } = useForm();
+  const {
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+  } = useForm();
   const [msg, setMsg] = useState<string>();
 
   useEffect(() => {
-    setValue("pkgName", pkgTitle);
+    setValue("pkgName", pkgName);
     setValue("location", location);
-  }, [pkgTitle, location]);
+  }, []);
 
   const onBooking = (data: any) => {
     if (data) {
-      setMsg("Thanks for Your Interest... Back to You shortly!");
+      console.log(data);
+
+      setMsg("Thanks for your interest... Back to you shortly!");
       reset();
+
       let timer = setTimeout(() => {
         setMsg("");
-        closePop(false);
         clearInterval(timer);
       }, 2000);
     }
   };
-
   return (
     popStatus && (
       <section className="fixed z-50 top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-black bg-opacity-80">
@@ -55,9 +62,9 @@ const BookingForm = ({
             </svg>
           </a>
           <h2 className="text-center text-2xl font-semibold text-white">
-            <small className="text-sm">Booking for</small>
+            <small className="text-sm">Booking For</small>
             <br />
-            {pkgTitle} - {location}
+            {pkgName} - {location}
           </h2>
           {msg && (
             <p className="text-black text-sm text-center font-semibold">
@@ -75,15 +82,25 @@ const BookingForm = ({
                 className="w-full text-base px-3 py-1.5 rounded shadow-md outline-none"
                 {...register("name", { required: true })}
               />
+              {errors.name && (
+                <p className="text-sm text-white font-medium">
+                  Please Mention Your Name
+                </p>
+              )}
             </div>
             <div className="my-3">
               <h4 className="text-white font-semibold text-sm mb-1">E-mail</h4>
               <input
                 type="email"
-                placeholder="E-mail"
+                placeholder="E-mail Address"
                 className="w-full text-base px-3 py-1.5 rounded shadow-md outline-none"
                 {...register("email", { required: true })}
               />
+              {errors.email && (
+                <p className="text-sm text-white font-medium">
+                  Please Mention Your Contact E-mail
+                </p>
+              )}
             </div>
             <div className="my-3">
               <h4 className="text-white font-semibold text-sm mb-1">
@@ -91,17 +108,22 @@ const BookingForm = ({
               </h4>
               <input
                 type="tel"
-                placeholder="Contact No."
+                placeholder="Contact Number"
                 className="w-full text-base px-3 py-1.5 rounded shadow-md outline-none"
                 {...register("contactNo", { required: true })}
               />
+              {errors.contactNo && (
+                <p className="text-sm text-white font-medium">
+                  Please Mention Your Contact Number
+                </p>
+              )}
             </div>
             <div className="my-3">
-              <h4 className="text-white font-semibold text-sm mb-1">Message</h4>
+              <h4 className="text-white font-semibold text-sm mb-1">Details</h4>
               <textarea
-                placeholder="Message"
+                placeholder="Details"
                 className="w-full text-base px-3 py-1.5 rounded shadow-md outline-none min-h-24"
-                {...register("message")}
+                {...register("details")}
               ></textarea>
             </div>
             <div className="flex justify-end mt-5">

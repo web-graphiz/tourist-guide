@@ -5,7 +5,7 @@ import BookingForm from "./bookingForm";
 import { useState } from "react";
 
 const PackageDetails = ({ pkgInfo }: { pkgInfo: Package }) => {
-  const [popUp, setPopUp] = useState<boolean>(false);
+  const [popStatus, setPopStatus] = useState(false);
   return (
     <>
       <aside
@@ -24,7 +24,7 @@ const PackageDetails = ({ pkgInfo }: { pkgInfo: Package }) => {
             {pkgInfo.price}
           </h4>
           <a
-            onClick={() => setPopUp(true)}
+            onClick={() => setPopStatus(true)}
             className="bg-green text-white cursor-pointer font-semibold px-5 py-1.5 rounded-full"
           >
             Book Now
@@ -32,10 +32,10 @@ const PackageDetails = ({ pkgInfo }: { pkgInfo: Package }) => {
         </div>
       </aside>
       <BookingForm
-        pkgTitle={pkgInfo.name}
+        pkgName={pkgInfo.name}
         location={pkgInfo.location}
-        popStatus={popUp}
-        closePop={(status) => setPopUp(status)}
+        popStatus={popStatus}
+        closePop={(status) => setPopStatus(status)}
       />
     </>
   );
