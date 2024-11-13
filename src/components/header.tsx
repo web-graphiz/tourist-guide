@@ -1,10 +1,41 @@
 "use client";
 
-import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+const sections = [
+  { id: "home", name: "Home" },
+  { id: "packages", name: "Package" },
+  { id: "about", name: "About" },
+  { id: "gallery", name: "Gallery" },
+  { id: "contact", name: "Contact" },
+];
 
 const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [activeSection, setActiveSection] = useState(null);
+
+  useEffect(() => {
+    const options = {
+      root: null, // Use the viewport as the root
+      rootMargin: "0px",
+      threshold: 0.6, // Trigger when 60% of the section is visible
+    };
+
+    const observer = new IntersectionObserver((entries: any) => {
+      entries.forEach((entry: any) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, options);
+
+    sections.forEach((section) => {
+      const element = document.getElementById(section.id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, [sections]);
 
   return (
     <header className="fixed left-0 right-0 py-4 z-50 bg-black bg-opacity-50">
@@ -29,37 +60,19 @@ const Header = () => {
           toggleMenu ? "flex" : "hidden sm:flex"
         } mt-2 sm:mt-0 gap-3 sm:gap-5 lg:gap-10 flex-col sm:flex-row justify-center items-center`}
       >
-        <a
-          href="#home"
-          className="uppercase font-semibold text-sm sm:text-base text-white text-center w-full sm:w-auto sm:px-3 lg:px-5 py-2 sm:py-1 rounded-2xl transition-all bg-green shadow-md"
-        >
-          Home
-        </a>
-        <a
-          href="#packages"
-          className="uppercase font-semibold text-sm sm:text-base text-white text-center w-full sm:w-auto sm:px-3 lg:px-5 py-2 sm:py-1 rounded-2xl transition-all hover:bg-green hover:shadow-md"
-        >
-          Packages
-        </a>
-        <a
-          href="#about"
-          className="uppercase font-semibold text-sm sm:text-base text-white text-center w-full sm:w-auto sm:px-3 lg:px-5 py-2 sm:py-1 rounded-2xl transition-all hover:bg-green hover:shadow-md"
-        >
-          About
-        </a>
-        <a
-          href="#gallery"
-          className="uppercase font-semibold text-sm sm:text-base text-white text-center w-full sm:w-auto sm:px-3 lg:px-5 py-2 sm:py-1 rounded-2xl transition-all hover:bg-green hover:shadow-md"
-        >
-          Gallery
-        </a>
-
-        <a
-          href="#contact"
-          className="uppercase font-semibold text-sm sm:text-base text-white text-center w-full sm:w-auto sm:px-3 lg:px-5 py-2 sm:py-1 hover:bg-green rounded-2xl transition-all hover:shadow-md"
-        >
-          Contact
-        </a>
+        {sections.map((menu: any, i: number) => {
+          return (
+            <a
+              key={i}
+              href={`#${menu.id}`}
+              className={`uppercase font-semibold text-sm sm:text-base text-white text-center w-full sm:w-auto sm:px-3 lg:px-5 py-2 sm:py-1 rounded-2xl transition-all ease-linear hover:bg-green hover:shadow-md ${
+                activeSection == menu.id ? "bg-green shadow-md" : ""
+              }`}
+            >
+              {menu.name}
+            </a>
+          );
+        })}
       </nav>
     </header>
   );
