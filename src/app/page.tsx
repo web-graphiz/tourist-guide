@@ -1,4 +1,3 @@
-import Header from "@/components/header";
 import PackageDetails from "@/components/packageDetails";
 import { Package } from "@/models/package";
 import Image from "next/image";
@@ -6,6 +5,7 @@ import traveler from "../../public/traveler.jpg";
 import Gallery from "@/components/gallery";
 import Testimonials from "@/components/testimonial";
 import ContactForm from "@/components/contactForm";
+import Header from "@/components/header";
 
 const packages = [
   {
